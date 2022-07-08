@@ -4,4 +4,4 @@
 python3 curl_command.py
 ```
 ### Lambda.py
-curlで受け取ったデータをDynamoDBに書き込む
+POSTされたデータをDynamoDBに書き込む
