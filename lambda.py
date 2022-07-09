@@ -1,5 +1,6 @@
 from datetime import datetime
 from boto3.dynamodb.conditions import Key, Attr
+import os
 import json
 import boto3
 
@@ -7,9 +8,8 @@ def lambda_handler(event, context):
     print('---')
     print(event)
     if len(event)!=0:
-        #TODO:環境変数に置き換える
-        dynamodb = boto3.resource('')
-        table = dynamodb.Table('')
+        dynamodb = boto3.resource('dynamodb')
+        table = dynamodb.Table(os.environ['DB_NAME'])
         now = datetime.today()
         day=now.strftime('%Y/%m/%d')
         date=now.strftime('%H:%M:%S')
